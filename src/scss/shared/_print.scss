@@ -1,0 +1,30 @@
+@media print {
+  #__next > *:not(#resume) {
+    display: none;
+  }
+  
+  .btn {
+    display: none;
+  }
+
+  .card.secondary {
+    border: none;
+    border-top: 1px solid;
+    border-radius: 0;
+  }
+
+  #resume {
+    width: 100%;
+    padding: 24px;
+    position: static;
+    box-shadow: none;
+  }
+
+  .overlay-backdrop {
+    display: none;
+  }
+
+  @page {
+    margin: 0;
+  }
+}

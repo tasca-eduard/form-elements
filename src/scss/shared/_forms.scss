@@ -1,0 +1,106 @@
+.form {
+    border-radius: 6px;
+    padding: 30px 20px 40px;
+    background: var(--primaryBg);
+    border: 3px solid var(--secondaryBg);
+    border-top: 2px solid var(--accent);
+
+    .title {
+        font-size: 24px;
+        display: inline-block;
+        padding-bottom: 20px;
+    }
+
+    input,
+    textarea {
+        caret-color: var(--accent);
+    }
+
+    .fieldset {
+        border: 2px solid var(--primaryBorder);
+        border-radius: 6px;
+        padding: 0 8px;
+        padding-top: 10px;
+        margin-bottom: 16px;
+        
+        legend {
+            padding: 0 8px;
+        }
+    }
+
+    .field {
+        margin-bottom: 16px;
+    }
+
+    .label {
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .input {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        border: 2px solid var(--secondaryBg);
+        border-bottom: 2px solid var(--primaryBorder);
+        border-radius: 6px;
+        padding: 8px;
+        background: var(--secondaryBg);
+        transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        font-size: 14px;
+
+        &:focus {
+            background: var(--secondaryBgDark);
+            border-bottom: 2px solid var(--accent);
+            outline: none;
+        }
+    }
+
+    .checkbox,
+    .radio {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+
+        .label {
+            margin-bottom: 0;
+            margin-left: 8px;
+        }
+
+        input { 
+            border-radius: 15px;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--primaryBorder);
+            accent-color: var(--accent);
+            outline: none;
+        }
+    }
+
+    .button {
+        margin-top: 24px;
+
+        &.submit {
+            height: 40px;
+        }
+    }
+
+    span {
+        font-size: 14px;
+    }
+
+    .input-error {
+        color: var(--error);
+        font-size: 12px;
+        padding-top: 8px;
+    }
+}
+
+:disabled {
+    background: var(--primaryBorder) !important;
+    cursor: auto !important;
+    border: none !important;
+    opacity: .5;
+}
