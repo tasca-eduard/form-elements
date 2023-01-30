@@ -139,6 +139,50 @@ export default function DisabledForm() {
           disabled={true}
         />
       </Field>
+      <Fieldset
+        title="Custom Checkboxes"
+      >
+        <Field>
+          <Checkbox 
+            id="checkboxCustom1"
+            name="checkboxCustom2"
+            label="Custom Checkbox Example 1"
+            custom="card-like"
+            disabled={true}
+          />
+        </Field>
+        <Field>
+          <Checkbox 
+            id="checkboxCustom2"
+            name="checkboxCusto2"
+            label="Custom Checkbox Example 2"
+            custom="card-like"
+            disabled={true}
+          />
+        </Field>
+      </Fieldset>
+      <Fieldset
+        title="Custom Radios"
+      >
+        <Field>
+          <Radio 
+            id="radioCustom1"
+            name="radioCustom"
+            label="Custom Radio Example 1"
+            custom="card-like"
+            disabled={true}
+          />
+        </Field>
+        <Field>
+          <Radio 
+            id="radioCustom2"
+            name="radioCustom"
+            label="Custom Radio Example 2"
+            custom="card-like"
+            disabled={true}
+          />
+        </Field>
+      </Fieldset>
       <Field>
         <small>Additional information: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, laborum!</small>
       </Field>

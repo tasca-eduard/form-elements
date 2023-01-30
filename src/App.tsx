@@ -6,7 +6,7 @@ function App() {
   return (
     <main className="main">
       <div className="container">
-        <div className="grid">
+        <div className="grid start">
           <BasicForm />
           <CustomForm />
           <DisabledForm />

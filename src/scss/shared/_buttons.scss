@@ -20,6 +20,8 @@
         background: var(--secondaryBgDark);
         border-bottom: 2px solid var(--accent);
         outline: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 }
 

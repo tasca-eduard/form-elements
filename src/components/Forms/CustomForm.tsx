@@ -5,6 +5,9 @@ import { useState } from "react";
 import Button from "../FormElements/Button/Button";
 import Input from "../FormElements/Input/Input";
 import { faAt, faChartBar, faEyeSlash, faFont } from "@fortawesome/free-solid-svg-icons";
+import Fieldset from "../FormElements/Field/Fieldset";
+import Checkbox from "../FormElements/Checkbox/Checkbox";
+import Radio from "../FormElements/Radio/Radio";
 
 export default function CustomForm() {
   const OPTIONS: Option[] = [
@@ -82,6 +85,46 @@ export default function CustomForm() {
           addon={faEyeSlash}
         />
       </Field>
+      <Fieldset
+        title="Custom Checkboxes"
+      >
+        <Field>
+          <Checkbox 
+            id="checkboxCustom1"
+            name="checkboxCustom2"
+            label="Custom Checkbox Example 1"
+            custom="card-like"
+          />
+        </Field>
+        <Field>
+          <Checkbox 
+            id="checkboxCustom2"
+            name="checkboxCusto2"
+            label="Custom Checkbox Example 2"
+            custom="card-like"
+          />
+        </Field>
+      </Fieldset>
+      <Fieldset
+        title="Custom Radios"
+      >
+        <Field>
+          <Radio 
+            id="radioCustom1"
+            name="radioCustom"
+            label="Custom Radio Example 1"
+            custom="card-like"
+          />
+        </Field>
+        <Field>
+          <Radio 
+            id="radioCustom2"
+            name="radioCustom"
+            label="Custom Radio Example 2"
+            custom="card-like"
+          />
+        </Field>
+      </Fieldset>
       <Field>
         <Button
           type="submit"

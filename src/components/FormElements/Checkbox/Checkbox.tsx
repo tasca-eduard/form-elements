@@ -2,7 +2,8 @@ interface Props {
   id: string,
   name: string,
   label: string,
-  disabled?: boolean
+  disabled?: boolean,
+  custom?: "card-like"
 }
 
 export default function Checkbox({
@@ -10,9 +11,13 @@ export default function Checkbox({
   name,
   label,
   disabled,
+  custom
 }: Props) {
   return (
-    <div className="checkbox">
+    <div className={[
+      "checkbox",
+      custom
+    ].join(" ")}>
       <input
         id={id}
         type="checkbox"

@@ -58,13 +58,21 @@
             background: var(--secondaryBgDark);
             border-bottom: 2px solid var(--accent);
             outline: none;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
 
             & + .addon {
                 background: var(--accent);
+
                 path {
                     fill: var(--primaryBg);
                 }
             }
+        }
+
+        &:focus-visible {
+            background: var(--ternaryBg);
+
         }
     }
 
@@ -80,6 +88,8 @@
             border-bottom: 2px solid transparent;
             transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
             border-radius: 6px;
+            // bottom border
+            margin-bottom: -2px;
         }
 
         input {
@@ -90,9 +100,104 @@
             accent-color: var(--accent);
             outline: none;
             
-            &:focus {
+            &:focus-visible {
                 & + .label {
                     border-bottom: 2px solid var(--accent);
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+
+        &.card-like {
+            position: relative;
+            margin-bottom: 42px;
+
+            &:first-child {
+                margin-top: 8px;
+            }
+
+            label {
+                position: absolute;
+                background: var(--secondaryBg);
+                padding: 12px 12px;
+                border-radius: 6px;
+                width: 100%;
+                left: -8px;
+                transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+                cursor: pointer;
+                padding-left: 36px;
+
+                &::after,
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translate(80%, -50%);
+                    width: 14px;
+                    height: 14px;
+                    background: var(--primaryText);
+                    border-radius: 2px;
+                    transition: 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+                    outline: 2px solid var(--secondaryBorder);
+                    outline-offset: 1px;
+                }
+
+                &::before {
+                    background: transparent;
+                    outline: none;
+                    z-index: 2;
+                    width: 10px;
+                    height: 10px;
+                    transform: translate(130%, -50%);
+                    border-radius: 2px;
+                }
+            }
+
+            input {
+                opacity: 0;
+
+                &:checked {
+                    & + label {
+                        &::after {
+                            background: var(--ternaryBg);
+                            outline-offset: 3px;
+                            outline-color: var(--accent);
+                        }
+
+                        &::before {
+                            background: var(--accent);
+                        }
+                    }
+
+                    &:hover {
+                        & + label {
+                            opacity: .9;
+                        }
+                    }
+                }
+
+                &:hover {
+                    & + label {
+                        background: var(--ternaryBg);
+                    }
+                }
+            }
+        }
+    }
+
+    .radio {
+        &.card-like {
+            label {
+                &::after {
+                    border-radius: 50%;
+                }
+
+                &::before {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
                 }
             }
         }
@@ -146,11 +251,20 @@
 
 :disabled {
     background: var(--primaryBorder) !important;
-    cursor: auto !important;
     border: none !important;
-    opacity: 0.5;
+    opacity: 0.6;
+    cursor: default !important;
 
     & + .addon {
         opacity: .5;
+    }
+
+    &.dropdown-toggle {
+        opacity: .45;
+    }
+
+    & + .label {
+        opacity: .45;
+        cursor: default !important;
     }
 }

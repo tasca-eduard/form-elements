@@ -31,6 +31,12 @@
       background: var(--ternaryBg);
       outline: none;
     }
+
+    &:focus-visible {
+      border-bottom: 2px solid var(--accent);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
   }
 
   .dropdown-options {
@@ -74,7 +80,7 @@
     text-align: left;
     width: 100%;
     padding: 8px;
-    border-radius: 5px;
+    border-radius: 6px;
     position: relative;
     background: transparent;
     transition: .05s;

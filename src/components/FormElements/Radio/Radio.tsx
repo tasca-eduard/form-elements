@@ -2,7 +2,8 @@ interface Props {
   id: string,
   name: string,
   label: string,
-  disabled?: boolean
+  disabled?: boolean,
+  custom?: "card-like"
 }
 
 export default function Radio({
@@ -10,9 +11,13 @@ export default function Radio({
   name,
   label,
   disabled,
+  custom
 }: Props) {
   return (
-    <div className="radio">
+    <div className={[
+      "radio",
+      custom
+    ].join(" ")}>
       <input
         id={id}
         type="radio"
