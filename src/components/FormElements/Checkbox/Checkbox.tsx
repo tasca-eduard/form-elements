@@ -13,18 +13,18 @@ export default function Checkbox({
 }: Props) {
   return (
     <div className="checkbox">
-      <label
-        htmlFor={id}
-        className="label"
-      >
-        {label}
-      </label>
       <input
         id={id}
         type="checkbox"
         name={name}
         disabled={disabled}
       />
+      <label
+        htmlFor={id}
+        className="label"
+      >
+        {label}
+      </label>
     </div>
   )
 }

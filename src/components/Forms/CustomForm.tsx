@@ -3,6 +3,8 @@ import Field from "../FormElements/Field/Field";
 import Form from "../FormElements/Form/Form";
 import { useState } from "react";
 import Button from "../FormElements/Button/Button";
+import Input from "../FormElements/Input/Input";
+import { faAt, faChartBar, faEyeSlash, faFont } from "@fortawesome/free-solid-svg-icons";
 
 export default function CustomForm() {
   const OPTIONS: Option[] = [
@@ -48,6 +50,36 @@ export default function CustomForm() {
           options={OPTIONS}
           selectedDefault={dropdownValue}
           onSelect={setDropdownValue}
+        />
+      </Field>
+      <Field>
+        <Input
+          id="textInputCustom"
+          name="textInputCustom"
+          type="text"
+          label="Text Input Field"
+          placeholder="Addon Text input field placeholder"
+          addon={faFont}
+        />
+      </Field>
+      <Field>
+        <Input
+          id="emailInputCustom"
+          name="emailInputCustom"
+          type="email"
+          label="Email Input Field"
+          placeholder="Addon Email input field placeholder"
+          addon={faAt}
+        />
+      </Field>
+      <Field>
+        <Input
+          id="passWordInputCustom"
+          name="passWordInputCustom"
+          type="password"
+          label="Password Input Field"
+          placeholder="Addon Password input field placeholder"
+          addon={faEyeSlash}
         />
       </Field>
       <Field>

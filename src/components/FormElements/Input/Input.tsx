@@ -1,3 +1,6 @@
+import { faAt, IconDefinition } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 interface Props {
   id: string,
   name: string,
@@ -5,6 +8,7 @@ interface Props {
   label: string,
   placeholder?: string,
   disabled?: boolean
+  addon?: IconDefinition 
 }
 
 export default function Input({
@@ -13,24 +17,35 @@ export default function Input({
   type,
   label,
   placeholder,
-  disabled
+  disabled,
+  addon
 }: Props) {
   return (
-    <>
+    <div className="input-group">
       <label
         htmlFor={id}
         className="label"
       >
         {label}
       </label>
-      <input
-        id={id}
-        className="input"
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        disabled={disabled}
-      />
-    </>
+      <div className={addon ? "addon-wrapper" : undefined}>
+        <input
+          id={id}
+          className="input"
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          disabled={disabled}
+          />    
+        {addon && (
+          <div className="addon">
+            <FontAwesomeIcon 
+              className="addon-icon" 
+              icon={addon} 
+            />
+          </div>
+        )}
+      </div>
+    </div>
   )
 }

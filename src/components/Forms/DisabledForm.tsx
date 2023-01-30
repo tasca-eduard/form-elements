@@ -1,3 +1,4 @@
+import { faAt, faEyeSlash, faFont } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Button from "../FormElements/Button/Button";
 import Checkbox from "../FormElements/Checkbox/Checkbox";
@@ -105,6 +106,39 @@ export default function DisabledForm() {
           />
         </Field>
       </Fieldset>
+      <Field>
+        <Input
+          id="textInputCustomDisabled"
+          name="textInputCustomDisabled"
+          type="text"
+          label="Text Input Field"
+          placeholder="Addon Text input field placeholder"
+          addon={faFont}
+          disabled={true}
+        />
+      </Field>
+      <Field>
+        <Input
+          id="emailInputCustomDisabled"
+          name="emailInputCustomDisabled"
+          type="email"
+          label="Email Input Field"
+          placeholder="Addon Email input field placeholder"
+          addon={faAt}
+          disabled={true}
+        />
+      </Field>
+      <Field>
+        <Input
+          id="passWordInputCustomDisabled"
+          name="passWordInputCustomDisabled"
+          type="password"
+          label="Password Input Field"
+          placeholder="Addon Password input field placeholder"
+          addon={faEyeSlash}
+          disabled={true}
+        />
+      </Field>
       <Field>
         <small>Additional information: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, laborum!</small>
       </Field>

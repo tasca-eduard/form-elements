@@ -13,18 +13,18 @@ export default function Radio({
 }: Props) {
   return (
     <div className="radio">
-      <label
-        htmlFor={id}
-        className="label"
-      >
-        {label}
-      </label>
       <input
         id={id}
         type="radio"
         name={name}
         disabled={disabled}
       />
+      <label
+        htmlFor={id}
+        className="label"
+      >
+        {label}
+      </label>
     </div>
   )
 }

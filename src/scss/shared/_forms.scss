@@ -14,6 +14,10 @@
     input,
     textarea {
         caret-color: var(--accent);
+
+        &:hover {
+            background: var(--ternaryBg);
+        }
     }
 
     .fieldset {
@@ -22,7 +26,7 @@
         padding: 0 8px;
         padding-top: 10px;
         margin-bottom: 16px;
-        
+
         legend {
             padding: 0 8px;
         }
@@ -47,13 +51,20 @@
         border-radius: 6px;
         padding: 8px;
         background: var(--secondaryBg);
-        transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
         font-size: 14px;
 
         &:focus {
             background: var(--secondaryBgDark);
             border-bottom: 2px solid var(--accent);
             outline: none;
+
+            & + .addon {
+                background: var(--accent);
+                path {
+                    fill: var(--primaryBg);
+                }
+            }
         }
     }
 
@@ -61,21 +72,29 @@
     .radio {
         display: flex;
         align-items: center;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
+        justify-content: flex-start;
 
         .label {
             margin-bottom: 0;
             margin-left: 8px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-radius: 6px;
         }
 
-        input { 
+        input {
             border-radius: 15px;
             width: 16px;
             height: 16px;
             border: 1px solid var(--primaryBorder);
             accent-color: var(--accent);
             outline: none;
+            
+            &:focus {
+                & + .label {
+                    border-bottom: 2px solid var(--accent);
+                }
+            }
         }
     }
 
@@ -96,11 +115,42 @@
         font-size: 12px;
         padding-top: 8px;
     }
+
+    .addon-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .input {
+            padding-left: 34px;
+        }
+    }
+
+    .addon {
+        padding: 7px;
+        position: absolute;
+        left: 4px;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        path {
+            transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+    }
 }
 
 :disabled {
     background: var(--primaryBorder) !important;
     cursor: auto !important;
     border: none !important;
-    opacity: .5;
+    opacity: 0.5;
+
+    & + .addon {
+        opacity: .5;
+    }
 }

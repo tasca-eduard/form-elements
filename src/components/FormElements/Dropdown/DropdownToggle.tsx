@@ -1,3 +1,6 @@
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 interface Props {
   className?: string,
   id: string,
@@ -30,6 +33,7 @@ export default function DropdownToggle({
       disabled={disabled}
     >
       <span>{text}</span>
+      <FontAwesomeIcon icon={faChevronDown} />
     </button>
   )
 }
