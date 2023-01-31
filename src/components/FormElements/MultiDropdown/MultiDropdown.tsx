@@ -36,10 +36,10 @@ export default function MultiDropdown({
 
   function handleChange(option: Option) {
     let tempSelected = [...selectedDefault];
-    const isAlreadySelected = (selected: Option) => selected.value === option.value;
+    const alreadySelectedCb = (selected: Option) => selected.value === option.value;
 
-    if (selectedDefault.find(isAlreadySelected)) {
-      const alreadySelectedIndex = tempSelected.findIndex(isAlreadySelected);
+    if (selectedDefault.find(alreadySelectedCb)) {
+      const alreadySelectedIndex = tempSelected.findIndex(alreadySelectedCb);
       tempSelected.splice(alreadySelectedIndex, 1);
     }  else {
       tempSelected.push(option);
