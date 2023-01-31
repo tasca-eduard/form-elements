@@ -4,7 +4,7 @@ interface Props {
   value: string,
   text: string,
   onClick: () => void,
-  selectedDefault: Option,
+  selectedDefault: Option | Option[],
   disabled?: boolean
 }
 
@@ -15,12 +15,22 @@ export default function DropdownItem({
   selectedDefault,
   disabled
 }: Props) {
+  function checkIsSelected() {
+    if (Array.isArray(selectedDefault)) {
+      return selectedDefault.some(option => {
+        return option.value === value;
+      })
+    }
+
+    return (selectedDefault as Option).value === value;
+  }
+
   return (
     <li>
       <button 
         className={[
           "dropdown-option",
-          value === selectedDefault.value ? "selected" : ""
+          checkIsSelected() ? "selected" : ""
         ].join(" ")}
         value={value}
         onClick={onClick}

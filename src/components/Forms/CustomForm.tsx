@@ -8,6 +8,7 @@ import { faAt, faChartBar, faEyeSlash, faFont } from "@fortawesome/free-solid-sv
 import Fieldset from "../FormElements/Field/Fieldset";
 import Checkbox from "../FormElements/Checkbox/Checkbox";
 import Radio from "../FormElements/Radio/Radio";
+import MultiDropdown from "../FormElements/MultiDropdown/MultiDropdown";
 
 export default function CustomForm() {
   const OPTIONS: Option[] = [
@@ -40,6 +41,7 @@ export default function CustomForm() {
     },
   ];
   const [dropdownValue, setDropdownValue] = useState<Option>(OPTIONS[0]);
+  const [multiDropdownValue, setMultiDropdownValue] = useState<Option[]>([]);
 
   return (
     <Form
@@ -53,6 +55,16 @@ export default function CustomForm() {
           options={OPTIONS}
           selectedDefault={dropdownValue}
           onSelect={setDropdownValue}
+        />
+      </Field>
+      <Field>
+        <MultiDropdown 
+          label="Multiselect Field"
+          id="multiselect"
+          name="multiselect"
+          options={OPTIONS}
+          selectedDefault={multiDropdownValue}
+          onSelect={setMultiDropdownValue}
         />
       </Field>
       <Field>

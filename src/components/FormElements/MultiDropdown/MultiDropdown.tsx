@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import DropdownItem from "./DropdownItem";
-import DropdownMenu from "./DropdownMenu";
-import DropdownToggle from "./DropdownToggle";
+import DropdownItem from "../Dropdown/DropdownItem";
+import DropdownMenu from "../Dropdown/DropdownMenu";
+import DropdownToggle from "../Dropdown/DropdownToggle";
 
 export interface Option {
   value: string,
@@ -13,12 +13,12 @@ interface Props {
   label: string,
   name: string,
   options: Option[],
-  selectedDefault: Option,
+  selectedDefault: Option[],
   onSelect: (value: any) => void,
   disabled?: boolean
 }
 
-export default function Dropdown({
+export default function MultiDropdown({
   id,
   label,
   name,
@@ -35,8 +35,17 @@ export default function Dropdown({
   }
 
   function handleChange(option: Option) {
-    onSelect(option)
-    toggleShow();
+    let tempSelected = [...selectedDefault];
+    const isAlreadySelected = (selected: Option) => selected.value === option.value;
+
+    if (selectedDefault.find(isAlreadySelected)) {
+      const alreadySelectedIndex = tempSelected.findIndex(isAlreadySelected);
+      tempSelected.splice(alreadySelectedIndex, 1);
+    }  else {
+      tempSelected.push(option);
+    }
+
+    onSelect(tempSelected)
   }
 
   function handleClickOutside(e: MouseEvent) {
@@ -49,10 +58,8 @@ export default function Dropdown({
     return option.text || option.value;
   }
 
-  
   function handleClear() {
-    onSelect({});
-    toggleShow();
+    onSelect([]);
   }
 
   useEffect(() => {
@@ -74,10 +81,7 @@ export default function Dropdown({
       <DropdownToggle
         id={id}
         name={name}
-        selected={{
-          value: selectedDefault.value,
-          text: getText(selectedDefault)
-        }}
+        selected={selectedDefault}
         onClick={toggleShow}
         disabled={disabled}
       />
@@ -96,7 +100,7 @@ export default function Dropdown({
         }
         {options.map(option => {
           return (
-            <DropdownItem 
+            <DropdownItem
               key={option.value}
               text={getText(option)} 
               value={option.value} 
