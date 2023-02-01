@@ -273,7 +273,7 @@
         border-radius: 6px;
         position: relative;
     }
-    
+
     svg {
         position: absolute;
         left: 8px;
@@ -291,6 +291,11 @@
         path {
             transition: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
+    }
+
+    small {
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 }
 

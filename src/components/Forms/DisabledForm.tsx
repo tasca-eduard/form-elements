@@ -5,6 +5,7 @@ import Checkbox from "../FormElements/Checkbox/Checkbox";
 import Dropdown, { Option } from "../FormElements/Dropdown/Dropdown";
 import Field from "../FormElements/Field/Field";
 import Fieldset from "../FormElements/Field/Fieldset";
+import File from "../FormElements/File/File";
 import Form from "../FormElements/Form/Form";
 import Input from "../FormElements/Input/Input";
 import Radio from "../FormElements/Radio/Radio";
@@ -183,6 +184,14 @@ export default function DisabledForm() {
           />
         </Field>
       </Fieldset>
+      <Field>
+        <File 
+          id="file"
+          name="file"
+          label="Choose a file"
+          disabled={true}
+        />
+      </Field>
       <Field>
         <small>Additional information: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, laborum!</small>
       </Field>

@@ -1,13 +1,10 @@
 import { faAt, IconDefinition } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { IBaseInput } from "../../../common/interfaces"
 
-interface Props {
-  id: string,
-  name: string,
+interface Props extends IBaseInput {
   type: "text" | "email" | "password",
-  label: string,
   placeholder?: string,
-  disabled?: boolean
   addon?: IconDefinition 
 }
 

@@ -22,7 +22,7 @@ export default function CustomForm() {
     },
     {
       value: "third",
-      text: "third Value"
+      text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam voluptatum incidunt beatae repudiandae temporibus error!"
     },
     {
       value: "fourth",

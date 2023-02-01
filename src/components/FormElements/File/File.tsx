@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IBaseInput } from "../../../common/interfaces";
 import { faFile } from "@fortawesome/free-regular-svg-icons";
 import { ChangeEvent, useState } from "react";
+import { getConvertedBytes } from "../../../common/utils";
 
 interface Props extends IBaseInput {};
 
@@ -41,7 +42,7 @@ export default function File({
             <>
               Name: {file.name}
               <br />
-              Size: {file.size.toLocaleString()} bytes
+              Size: {getConvertedBytes(String(file.size))}
               <br />
               Type: {file.type}
             </>

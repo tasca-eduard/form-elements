@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { IBaseInput } from "../../../common/interfaces";
 import DropdownItem from "./DropdownItem";
 import DropdownMenu from "./DropdownMenu";
 import DropdownToggle from "./DropdownToggle";
@@ -8,14 +9,10 @@ export interface Option {
   text?: string
 }
 
-interface Props {
-  id: string,
-  label: string,
-  name: string,
+interface Props extends IBaseInput {
   options: Option[],
   selectedDefault: Option,
   onSelect: (value: any) => void,
-  disabled?: boolean
 }
 
 export default function Dropdown({

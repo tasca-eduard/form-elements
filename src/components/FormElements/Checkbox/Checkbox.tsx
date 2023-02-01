@@ -1,8 +1,6 @@
-interface Props {
-  id: string,
-  name: string,
-  label: string,
-  disabled?: boolean,
+import { IBaseInput } from "../../../common/interfaces"
+
+interface Props extends IBaseInput {
   custom?: "card-like"
 }
 
