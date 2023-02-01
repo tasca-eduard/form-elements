@@ -9,6 +9,7 @@ import Fieldset from "../FormElements/Field/Fieldset";
 import Checkbox from "../FormElements/Checkbox/Checkbox";
 import Radio from "../FormElements/Radio/Radio";
 import MultiDropdown from "../FormElements/MultiDropdown/MultiDropdown";
+import File from "../FormElements/File/File";
 
 export default function CustomForm() {
   const OPTIONS: Option[] = [
@@ -137,6 +138,13 @@ export default function CustomForm() {
           />
         </Field>
       </Fieldset>
+      <Field>
+        <File 
+          id="file"
+          name="file"
+          label="Choose a file"
+        />
+      </Field>
       <Field>
         <Button
           type="submit"
